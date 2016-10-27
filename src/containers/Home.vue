@@ -1,7 +1,15 @@
 <template>
-    <div>Home</div>
+    <div>
+      <p>Home</p>
+      <p>Am I Authenticated? {{ isAuthenticated ? 'Yes' : 'No' }}</p>
+    </div>
 </template>
 <script>
-    export default {
-    };
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: mapGetters([
+    'isAuthenticated'
+  ])
+};
 </script>
