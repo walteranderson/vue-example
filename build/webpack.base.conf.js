@@ -28,7 +28,8 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'containers': path.resolve(__dirname, '../src/containers'),
-      'store': path.resolve(__dirname, '../src/store')
+      'store': path.resolve(__dirname, '../src/store'),
+      'purecss': path.resolve(__dirname, '../node_modules/purecss/build')
     }
   },
   resolveLoader: {

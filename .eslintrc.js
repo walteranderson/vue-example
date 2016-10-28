@@ -110,7 +110,7 @@ module.exports = {
     "no-label-var": 1,
     "no-shadow": [2, {"builtinGlobals": false}],
     "no-shadow-restricted-names": 2,
-    "no-undef": 2,
+    // "no-undef": 2,
     "no-undef-init": 1,
     "no-undefined": 0,
     "no-unused-vars": 2,
