@@ -1,6 +1,8 @@
 const state = {
   auth: {
-    isAuthenticated: false
+    sending: false,
+    isAuthenticated: false,
+    token: null
   },
   user: {}
 };

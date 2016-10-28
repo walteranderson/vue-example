@@ -113,7 +113,7 @@ module.exports = {
     // "no-undef": 2,
     "no-undef-init": 1,
     "no-undefined": 0,
-    "no-unused-vars": 2,
+    "no-unused-vars": 1,
     "no-use-before-define": 2,
 
     // --- Node.js and CommonJS (section may not be needed)
@@ -135,7 +135,7 @@ module.exports = {
     "computed-property-spacing": [1, "never"],
     "consistent-this": [1, "that", "self", "_self"],
     "eol-last": [1, "unix"],
-    "func-names": 2,
+    "func-names": 0,
     "func-style": [1, "expression", { "allowArrowFunctions": true }],
     "id-blacklist": 0,
     "id-length": 0,

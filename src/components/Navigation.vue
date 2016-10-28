@@ -6,10 +6,14 @@
 
   <span style="flex: 1;"></span>
 
-  <template v-if="!isAuthenticated">
+  <template v-if="isAuthenticated">
+    <router-link to="/dashboard" class="md-button">Dashboard</router-link>
+  </template>
+  <template v-else>
     <router-link to="/login" class="md-button">Login</router-link>
     <router-link to="/register" class="md-button">Register</router-link>
   </template>
+
   <md-button class="md-icon-button">
     <md-icon>favorite</md-icon>
   </md-button>
