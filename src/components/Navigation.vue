@@ -8,7 +8,7 @@
 
   <template v-if="isAuthenticated">
     <router-link to="/dashboard" class="md-button">Dashboard</router-link>
-    <md-button>Logout</md-button>
+    <md-button @click="logoutRequest">Logout</md-button>
   </template>
   <template v-else>
     <router-link to="/login" class="md-button">Login</router-link>
@@ -28,12 +28,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: mapGetters([
-    'isAuthenticated'
-  ])
+    'isAuthenticated',
+  ]),
+  methods: mapActions([
+    'logoutRequest',
+  ]),
 };
 </script>
 

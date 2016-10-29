@@ -15,7 +15,7 @@
   export default {
     name: 'Home',
     computed: mapGetters([
-      'isAuthenticated'
-    ])
+      'isAuthenticated',
+    ]),
   };
 </script>

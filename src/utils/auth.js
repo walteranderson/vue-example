@@ -1,26 +1,33 @@
+/* global window */
+
 const storage = window.localStorage;
 const TOKEN_KEY = 'v_t';
+let token = null;
 
-const _token = null;
+export default {
+  setToken(t) {
+    storage.setItem(TOKEN_KEY, JSON.stringify(t));
+    token = t;
+  },
 
-export const setToken = token => {
-  storage.setItem(TOKEN_KEY, JSON.stringify(token));
-  _token = token;
-};
+  getToken() {
+    if (token) return token;
 
-export const getToken = () => {
-  if (_token) return _token;
-  return JSON.parse(storage.getItem(TOKEN_KEY));
-};
-
-// TODO: add refresh token
-export const check = () => {
-  return new Promise((resolve, reject) => {
-    const token = gettoken();
-    if (!token) {
-      return reject('no token');
+    try {
+      return JSON.parse(storage.getItem(TOKEN_KEY));
+    } catch (e) {
+      // TODO: add proper logging
+      return null;
     }
+  },
 
-    resolve(token);
-  });
+  clearToken() {
+    storage.removeItem(TOKEN_KEY);
+    token = null;
+  },
+
+  // TODO: check token expiration and refresh if needed
+  check() {
+    return !!this.getToken();
+  },
 };

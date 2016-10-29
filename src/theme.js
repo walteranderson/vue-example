@@ -8,5 +8,5 @@ Vue.material.theme.register('default', {
   primary: 'indigo',
   accent: 'pink',
   background: 'grey',
-  warn: 'deep-orange'
+  warn: 'deep-orange',
 });

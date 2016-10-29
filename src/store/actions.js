@@ -1,30 +1,52 @@
 import api from 'api';
-import auth from 'utils/auth';
+import {
+  LOGIN_REQUEST_SUCCESS,
+  LOGIN_REQUEST_FAILURE,
+  LOGOUT_REQUEST,
+  USER_REQUEST_SUCCESS,
+  ROUTER_ROUTE_CHANGED,
+} from 'store/mutations';
 
-export const LOGIN_REQUEST_SUCCESS = 'login/REQUEST_SUCCESS';
-export const LOGIN_REQUEST_FAILURE = 'login/REQUEST_FAILURE';
-export const LOGOUT_REQUEST_SUCCESS = 'logout/REQUEST_SUCCESS';
-
-export const ROUTER_ROUTE_CHANGED = 'router/ROUTE_CHANGED';
+// TODO: think about better naming conventions for actions and mutation types.
 
 export const loginRequest = ({ commit }, creds) => {
   api.authenticate(creds)
-    .then((res) => return res.json())
     .then((res) => {
-      const token = res.token;
+      const token = res.data.token;
 
-      auth.setToken(token);
       commit(LOGIN_REQUEST_SUCCESS, { token });
+    })
+    // attempt to get the user now that we're authenticated
+    .then(api.getUser)
+    .then((res) => {
+      const user = res.data;
+
+      commit(USER_REQUEST_SUCCESS, { user });
       commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
     })
-    .catch(() => commit(LOGIN_REQUEST_FAILURE));
+    .catch(() => {
+      // TODO: add proper logging
+      commit(LOGIN_REQUEST_FAILURE);
+      commit(LOGOUT_REQUEST);
+    });
 };
 
 export const logoutRequest = ({ commit }) => {
-  commit(LOGOUT_REQUEST_SUCCESS);
+  commit(LOGOUT_REQUEST);
   commit(ROUTER_ROUTE_CHANGED, { path: '/' });
 };
 
-// export const getUser = ({ commit, state }) => {
-//   //
-// };
+export const authPrefetchRequest = ({ commit }, token) => {
+  commit(LOGIN_REQUEST_SUCCESS, { token });
+  api.getUser()
+    .then((res) => {
+      const user = res.data;
+      commit(USER_REQUEST_SUCCESS, { user });
+      commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
+    })
+    .catch(() => {
+      // TODO: add proper logging
+      commit(LOGOUT_REQUEST);
+      commit(ROUTER_ROUTE_CHANGED, { path: '/' });
+    });
+};

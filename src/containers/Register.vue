@@ -32,8 +32,8 @@
       return {
         username: '',
         email: '',
-        password: ''
+        password: '',
       };
-    }
+    },
   };
 </script>

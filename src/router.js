@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from 'store';
-import auth from './auth';
 import {
   Home,
   Dashboard,
   Login,
-  Register
+  Register,
 } from 'containers';
 
 Vue.use(VueRouter);
@@ -15,23 +14,19 @@ const routes = [
   { path: '/', component: Home },
   { path: '/dashboard', component: Dashboard, meta: { auth: true } },
   { path: '/login', component: Login },
-  { path: '/register', component: Register }
+  { path: '/register', component: Register },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
 });
 
-router.beforeEach(function(to, from, next) {
-  auth.check().catch(() => store.dispatch('logoutRequest'));
-});
-
-router.beforeEach(function(to, from, next) {
+router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.auth) && !store.state.auth.isAuthenticated) {
     next({
       path: '/login',
-      query: { redirect: to.fullPath }
+      query: { redirect: to.fullPath },
     });
   } else {
     next();

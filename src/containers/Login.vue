@@ -27,13 +27,13 @@
     name: 'Login',
     data() {
       return {
-        creds: { email: '', password: '' }
+        creds: { email: '', password: '' },
       };
     },
     methods: {
       ...mapActions([
-        'loginRequest'
-      ])
-    }
+        'loginRequest',
+      ]),
+    },
   };
 </script>

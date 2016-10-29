@@ -9,9 +9,10 @@
 import { Navigation } from 'components';
 
 export default {
+  name: 'App',
   components: {
-    Navigation
-  }
+    Navigation,
+  },
 };
 </script>
 
