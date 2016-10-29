@@ -3,8 +3,8 @@
 import Vue from 'vue';
 import { sync } from 'vuex-router-sync';
 import store from 'store';
+import { App } from 'containers';
 import router from './router';
-import App from './App.vue';
 
 // import and configure material design theme
 import './theme';

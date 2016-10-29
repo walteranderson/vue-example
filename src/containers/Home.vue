@@ -3,7 +3,7 @@
     <div class="pure-g">
       <div class="pure-u-1">
         <h2 class="md-title">Home</h2>
-        <p>Am I Authenticated? {{ isAuthenticated ? 'Yes' : 'No' }}</p>
+        <p>Am I authenticated? {{ isAuthenticated ? 'Yes' : 'No' }}</p>
       </div>
     </div>
   </md-card>

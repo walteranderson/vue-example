@@ -1,7 +1,7 @@
 <template>
   <div v-md-theme="'default'">
     <Navigation/>
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
