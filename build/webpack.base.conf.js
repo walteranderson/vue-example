@@ -30,6 +30,7 @@ module.exports = {
       'containers': path.resolve(__dirname, '../src/containers'),
       'store': path.resolve(__dirname, '../src/store'),
       'api': path.resolve(__dirname, '../src/api'),
+      'utils': path.resolve(__dirname, '../src/utils'),
       'purecss': path.resolve(__dirname, '../node_modules/purecss/build')
     }
   },

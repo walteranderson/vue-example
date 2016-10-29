@@ -1,6 +1,5 @@
 const state = {
   auth: {
-    sending: false,
     isAuthenticated: false,
     token: null
   },
