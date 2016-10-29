@@ -13,7 +13,8 @@
     "purecss": "^0.6.0",
     "vue": "^2.0.1",
     "vue-material": "^0.2.0",
-    "vuex": "^2.0.0"
+    "vuex": "^2.0.0",
+    "vuex-router-sync": "next"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

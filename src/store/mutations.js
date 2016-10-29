@@ -5,11 +5,11 @@ import {
 } from 'store/actions';
 
 const mutations = {
-  [LOGIN_REQUEST_SENDING](state, sending) {
+  [LOGIN_REQUEST_SENDING](state, { sending }) {
     state.auth.sending = sending;
   },
 
-  [LOGIN_REQUEST_SUCCESS](state, token) {
+  [LOGIN_REQUEST_SUCCESS](state, { token }) {
     state.auth.token = token;
     state.auth.isAuthenticated = true;
   },

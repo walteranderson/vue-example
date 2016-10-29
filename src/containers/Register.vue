@@ -24,8 +24,10 @@
     </div>
   </md-card>
 </template>
+
 <script>
   export default {
+    name: 'Register',
     data() {
       return {
         username: '',

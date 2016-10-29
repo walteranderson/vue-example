@@ -8,6 +8,7 @@
 
   <template v-if="isAuthenticated">
     <router-link to="/dashboard" class="md-button">Dashboard</router-link>
+    <md-button>Logout</md-button>
   </template>
   <template v-else>
     <router-link to="/login" class="md-button">Login</router-link>

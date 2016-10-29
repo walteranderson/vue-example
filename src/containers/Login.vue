@@ -21,18 +21,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+  import { mapActions } from 'vuex';
 
-export default {
-  data() {
-    return {
-      creds: { email: '', password: '' }
-    };
-  },
-  methods: {
-    ...mapActions([
-      'loginRequest'
-    ])
-  }
-};
+  export default {
+    name: 'Login',
+    data() {
+      return {
+        creds: { email: '', password: '' }
+      };
+    },
+    methods: {
+      ...mapActions([
+        'loginRequest'
+      ])
+    }
+  };
 </script>

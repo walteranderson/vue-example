@@ -8,12 +8,14 @@
     </div>
   </md-card>
 </template>
-<script>
-import { mapGetters } from 'vuex';
 
-export default {
-  computed: mapGetters([
-    'isAuthenticated'
-  ])
-};
+<script>
+  import { mapGetters } from 'vuex';
+
+  export default {
+    name: 'Home',
+    computed: mapGetters([
+      'isAuthenticated'
+    ])
+  };
 </script>

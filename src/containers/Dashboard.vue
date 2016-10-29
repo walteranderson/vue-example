@@ -1,9 +1,11 @@
 <template>
   <md-card class="container">
-    <h2 class="md-title">Dashboard</h2>
+    <h2 class="md-title">dashboard</h2>
   </md-card>
 </template>
+
 <script>
-    export default {
-    };
+  export default {
+    name: 'Dashboard'
+  };
 </script>
