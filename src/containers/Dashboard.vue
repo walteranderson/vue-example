@@ -1,8 +1,7 @@
 <template>
   <md-card class="container">
-    <h2 class="md-title">dashboard</h2>
-    <!-- <img src="~assets/images/vue-logo.png" alt="VueJS Logo"> -->
-    {{ user }}
+    <h2 class="md-title">Dashboard</h2>
+    <p>Hello, {{ user.username }}.</p>
   </md-card>
 </template>
 

@@ -4,6 +4,7 @@
       <div class="pure-u-1">
         <h2 class="md-title">Home</h2>
         <p>Am I authenticated? {{ isAuthenticated ? 'Yes' : 'No' }}</p>
+        <img src="~assets/images/vue-logo.png" alt="VueJS Logo">
       </div>
     </div>
   </md-card>
