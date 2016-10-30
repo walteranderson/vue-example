@@ -2,6 +2,9 @@
 @import '~purecss/grids-min.css';
 @import '~purecss/grids-responsive-min.css';
 
+// NOTE: need to explicitly set the `font-path` variable since webpack
+// gets confused when you have relative paths in the node_module directory
+
 // roboto font
 $roboto-font-path: '~roboto-fontface/fonts';
 @import '~roboto-fontface/css/roboto/sass/roboto-fontface';
