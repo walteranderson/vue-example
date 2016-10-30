@@ -33,6 +33,7 @@ module.exports = {
       'utils': path.resolve(__dirname, '../src/utils'),
       'purecss': path.resolve(__dirname, '../node_modules/purecss/build'),
       'material-icons': path.resolve(__dirname, '../node_modules/material-design-icons-iconfont/dist'),
+      'roboto-fontface': path.resolve(__dirname, '../node_modules/roboto-fontface'),
     }
   },
   resolveLoader: {
