@@ -1,2 +1,6 @@
-@import 'material-icons';
-@import 'roboto';
+@import '~purecss/grids-min.css';
+@import '~purecss/grids-responsive-min.css';
+
+$material-design-icons-font-path: '~material-icons/fonts/';
+@import '~material-icons/material-design-icons';
+

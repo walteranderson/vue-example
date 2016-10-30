@@ -17,9 +17,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~purecss/grids-min.css';
-  @import '~purecss/grids-responsive-min.css';
-
   $grey: #EFEFEF;
 
   body {

@@ -31,7 +31,8 @@ module.exports = {
       'store': path.resolve(__dirname, '../src/store'),
       'api': path.resolve(__dirname, '../src/api'),
       'utils': path.resolve(__dirname, '../src/utils'),
-      'purecss': path.resolve(__dirname, '../node_modules/purecss/build')
+      'purecss': path.resolve(__dirname, '../node_modules/purecss/build'),
+      'material-icons': path.resolve(__dirname, '../node_modules/material-design-icons-iconfont/dist'),
     }
   },
   resolveLoader: {
