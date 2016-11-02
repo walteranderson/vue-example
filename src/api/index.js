@@ -6,7 +6,8 @@ http.interceptors.request.use(requestInterceptor);
 const {
   API_BASE_URL,
   API_AUTH_ENDPOINT,
-  API_USER_ENDPOINT,
+  API_USERS_ENDPOINT,
+  API_USERS_ME_ENDPOINT,
 } = process.env;
 
 // const DEFAULT_HEADERS = {
@@ -20,7 +21,12 @@ export default {
   },
 
   getUser() {
-    const url = API_BASE_URL + API_USER_ENDPOINT;
+    const url = API_BASE_URL + API_USERS_ME_ENDPOINT;
     return http.get(url);
+  },
+
+  registerUser(user) {
+    const url = API_BASE_URL + API_USERS_ENDPOINT;
+    return http.post(url, user);
   },
 };
