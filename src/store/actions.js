@@ -1,74 +1,63 @@
 import api from 'api';
 import {
-  LOGIN_REQUEST_SUCCESS,
-  LOGIN_REQUEST_FAILURE,
-  LOGOUT_REQUEST,
-  USER_REQUEST_SUCCESS,
   ROUTER_ROUTE_CHANGED,
+  AUTH_SET_TOKEN,
+  AUTH_EXPIRE,
+  SET_USER,
 } from 'store/mutations';
 
-// TODO: think about better naming conventions for actions and mutation types.
+// TODO: think about better naming conventions
+//  - actions
+// TODO: add proper logging
 
 export const loginRequest = ({ commit }, creds) => {
   api.authenticate(creds)
     .then((res) => {
-      const token = res.data.token;
+      const token = res.token;
 
-      commit(LOGIN_REQUEST_SUCCESS, { token });
+      commit(AUTH_SET_TOKEN, { token });
     })
-    // attempt to get the user now that we're authenticated
     .then(api.getUser)
-    .then((res) => {
-      const user = res.data;
-
-      commit(USER_REQUEST_SUCCESS, { user });
+    .then((user) => {
+      commit(SET_USER, { user });
       commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
-    })
-    .catch(() => {
-      // TODO: add proper logging
-      commit(LOGIN_REQUEST_FAILURE);
-      commit(LOGOUT_REQUEST);
     });
-};
-
-export const logoutRequest = ({ commit }) => {
-  commit(LOGOUT_REQUEST);
-  commit(ROUTER_ROUTE_CHANGED, { path: '/' });
-};
-
-export const authPrefetchRequest = ({ commit }, token) => {
-  commit(LOGIN_REQUEST_SUCCESS, { token });
-  api.getUser()
-    .then((res) => {
-      const user = res.data;
-      commit(USER_REQUEST_SUCCESS, { user });
-      commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
-    })
-    .catch(() => {
-      // TODO: add proper logging
-      commit(LOGOUT_REQUEST);
-      commit(ROUTER_ROUTE_CHANGED, { path: '/' });
-    });
+    // .catch(() => {
+    //   commit(AUTH_EXPIRE);
+    // });
 };
 
 export const registerRequest = ({ commit }, creds) => {
   api.registerUser(creds)
     .then((res) => {
-      const token = res.data.token;
+      const token = res.token;
 
-      commit(LOGIN_REQUEST_SUCCESS, { token });
+      commit(AUTH_SET_TOKEN, { token });
     })
-    // attempt to get the user now that we're authenticated
     .then(api.getUser)
-    .then((res) => {
-      const user = res.data;
-
-      commit(USER_REQUEST_SUCCESS, { user });
+    .then((user) => {
+      commit(SET_USER, { user });
       commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
-    })
-    .catch(() => {
-      // TODO: add proper logging
-      commit(LOGIN_REQUEST_FAILURE);
-      commit(LOGOUT_REQUEST);
     });
+    // .catch(() => {
+    //   commit(AUTH_EXPIRE);
+    // });
+};
+
+export const logout = ({ commit }) => {
+  commit(AUTH_EXPIRE);
+  commit(ROUTER_ROUTE_CHANGED, { path: '/' });
+};
+
+export const authPrefetchRequest = ({ commit }, token) => {
+  commit(AUTH_SET_TOKEN, { token });
+  api.getUser()
+    .then((user) => {
+      commit(SET_USER, { user });
+      commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
+    });
+    // .catch(() => {
+    //   commit(AUTH_EXPIRE);
+    //   commit(ROUTER_ROUTE_CHANGED, { path: '/' });
+    // });
 };

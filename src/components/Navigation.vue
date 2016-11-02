@@ -8,7 +8,7 @@
 
   <template v-if="isAuthenticated">
     <router-link to="/dashboard" class="md-button">Dashboard</router-link>
-    <md-button @click="logoutRequest">Logout</md-button>
+    <md-button @click="logout">Logout</md-button>
   </template>
   <template v-else>
     <router-link to="/login" class="md-button">Login</router-link>
@@ -35,7 +35,7 @@ export default {
     'isAuthenticated',
   ]),
   methods: mapActions([
-    'logoutRequest',
+    'logout',
   ]),
 };
 </script>

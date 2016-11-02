@@ -1,27 +1,24 @@
 import { auth } from 'utils';
 
-export const LOGIN_REQUEST_SUCCESS = 'login/REQUEST_SUCCESS';
-export const LOGIN_REQUEST_FAILURE = 'login/REQUEST_FAILURE';
-export const LOGOUT_REQUEST = 'logout/REQUEST_SUCCESS';
-
+export const AUTH_SET_TOKEN = 'auth/SET_TOKEN';
+export const AUTH_EXPIRE = 'auth/EXPIRE';
+export const SET_USER = 'user/SET';
 export const ROUTER_ROUTE_CHANGED = 'router/ROUTE_CHANGED';
 
-export const USER_REQUEST_SUCCESS = 'user/REQUEST_SUCCESS';
-export const USER_REQUEST_FAILURE = 'user/REQUEST_FAILURE';
-
 const mutations = {
-  [LOGIN_REQUEST_SUCCESS](state, { token }) {
+  [AUTH_SET_TOKEN](state, { token }) {
     auth.setToken(token);
     state.auth.isAuthenticated = true;
   },
 
-  [LOGOUT_REQUEST](state) {
+  [AUTH_EXPIRE](state, { error = null }) {
     auth.clearToken();
     state.auth.isAuthenticated = false;
     state.user = {};
+    state.auth.error = error;
   },
 
-  [USER_REQUEST_SUCCESS](state, { user }) {
+  [SET_USER](state, { user }) {
     state.user = user;
   },
 };
