@@ -4,7 +4,7 @@
     <md-icon>menu</md-icon>
   </md-button>
 
-  <span style="flex: 1;"></span>
+  <span class="buffer"></span>
 
   <template v-if="isAuthenticated">
     <router-link to="/dashboard" class="md-button">Dashboard</router-link>
@@ -20,7 +20,7 @@
   </md-button>
 
   <div class="md-toolbar-container">
-    <router-link to="/" tag="h2" class="md-title">Vue Example</router-link>
+    <router-link to="/" tag="h2" class="md-title link">Vue Example</router-link>
   </div>
 
 
@@ -41,7 +41,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.md-title {
+.link {
   cursor: pointer;
+}
+
+.buffer {
+  flex: 1;
 }
 </style>

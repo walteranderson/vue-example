@@ -16,7 +16,13 @@ const routes = [
   { path: '/register', component: Register },
 
   // auth-protected routes
-  { path: '/dashboard', component: Dashboard, meta: { auth: true } },
+  {
+    path: '/dashboard',
+    component: Dashboard,
+    meta: {
+      auth: true
+    }
+  },
 ];
 
 const router = new VueRouter({

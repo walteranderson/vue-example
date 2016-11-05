@@ -10,7 +10,7 @@ import {
 //  - actions
 // TODO: add proper logging
 
-export const loginRequest = ({ commit }, creds) => {
+export const login = ({ commit }, creds) => {
   api.authenticate(creds)
     .then((res) => {
       const token = res.token;
@@ -27,7 +27,7 @@ export const loginRequest = ({ commit }, creds) => {
     // });
 };
 
-export const registerRequest = ({ commit }, creds) => {
+export const register = ({ commit }, creds) => {
   api.registerUser(creds)
     .then((res) => {
       const token = res.token;
@@ -49,15 +49,15 @@ export const logout = ({ commit }) => {
   commit(ROUTER_ROUTE_CHANGED, { path: '/' });
 };
 
-export const authPrefetchRequest = ({ commit }, token) => {
+export const authPrefetch = ({ commit }, token) => {
   commit(AUTH_SET_TOKEN, { token });
   api.getUser()
     .then((user) => {
       commit(SET_USER, { user });
       commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
     });
-    // .catch(() => {
-    //   commit(AUTH_EXPIRE);
-    //   commit(ROUTER_ROUTE_CHANGED, { path: '/' });
-    // });
+    .catch(() => {
+      commit(AUTH_EXPIRE);
+      commit(ROUTER_ROUTE_CHANGED, { path: '/' });
+    });
 };

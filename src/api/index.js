@@ -10,10 +10,6 @@ const {
   API_USERS_ME_ENDPOINT,
 } = process.env;
 
-// const DEFAULT_HEADERS = {
-//   'Content-Type': 'application/json',
-// };
-
 // reduce the response down to just the payload, `res.data`
 const responseReducer = response => response.data;
 

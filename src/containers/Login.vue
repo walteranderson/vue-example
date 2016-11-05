@@ -2,7 +2,7 @@
   <md-card class="container container--form">
     <div class="login pure-u-1">
       <h2 class="md-title">Login</h2>
-      <form @submit.stop.prevent="loginRequest(creds)">
+      <form @submit.stop.prevent="login(creds)">
 
         <md-input-container>
           <label>Email</label>
@@ -32,7 +32,7 @@
     },
     methods: {
       ...mapActions([
-        'loginRequest',
+        'login',
       ]),
     },
   };

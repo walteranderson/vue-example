@@ -8,6 +8,14 @@ import plugins from 'store/plugins';
 
 Vue.use(Vuex);
 
+const state = {
+  auth: {
+    isAuthenticated: false,
+    error: null,
+  },
+  user: {},
+};
+
 export default new Store({
   state,
   getters,

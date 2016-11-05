@@ -2,7 +2,7 @@
   <md-card class="container container--form">
     <div class="register pure-u-1">
       <h2 class="md-title">Register</h2>
-      <form @submit.stop.prevent="registerRequest(user)">
+      <form @submit.stop.prevent="register(user)">
 
         <md-input-container>
           <label>Username</label>
@@ -40,7 +40,7 @@
       };
     },
     methods: mapActions([
-      'registerRequest',
+      'register',
     ]),
   };
 </script>

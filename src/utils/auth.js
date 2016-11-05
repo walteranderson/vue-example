@@ -1,5 +1,6 @@
 /* global window */
 
+// TODO: come on, localStorage? really?
 const storage = window.localStorage;
 const TOKEN_KEY = 'v_t';
 let token = null;
@@ -11,12 +12,16 @@ export default {
   },
 
   getToken() {
-    if (token) return token;
+    if (token) {
+      return token;
+    }
 
     try {
-      return JSON.parse(storage.getItem(TOKEN_KEY));
+      return JSON.parse(
+        storage.getItem(TOKEN_KEY)
+      );
     } catch (e) {
-      // TODO: add proper logging
+      // TODO: this should be logged
       return null;
     }
   },
