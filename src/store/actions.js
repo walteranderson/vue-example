@@ -55,7 +55,7 @@ export const authPrefetch = ({ commit }, token) => {
     .then((user) => {
       commit(SET_USER, { user });
       commit(ROUTER_ROUTE_CHANGED, { path: '/dashboard' });
-    });
+    })
     .catch(() => {
       commit(AUTH_EXPIRE);
       commit(ROUTER_ROUTE_CHANGED, { path: '/' });
