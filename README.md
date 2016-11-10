@@ -1,5 +1,7 @@
 # VueJS + Vuex Example
 
+NOTE: This is a work in progress.
+
 An example project that shows how you might build a single page application using:
 
 - vue JS
